@@ -4,7 +4,7 @@ import 'package:flutter/rendering.dart';
 import './PAGES/deck.dart';
 
 void main() {
-  debugPaintSizeEnabled = true;
+  //debugPaintSizeEnabled = true;
   runApp(Home());
 }
 
@@ -22,6 +22,7 @@ class _Home extends State<Home> {
     // TODO: implement build
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: Color.fromRGBO(190, 190, 190, 2),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -63,6 +64,7 @@ class Button extends StatelessWidget
   Widget build(BuildContext context) {
     // TODO: implement build
     return RaisedButton(
+              elevation: 20.0,
               onPressed: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (BuildContext context) {
