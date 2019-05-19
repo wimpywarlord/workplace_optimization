@@ -16,88 +16,26 @@ class _DeckState extends State<Deck> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Scaffold(
-        backgroundColor: Color.fromRGBO(70, 192, 255, 2.0),
+    return DefaultTabController(
+      child: Scaffold(
         appBar: AppBar(
-          title: Text('WELCOME TO THE DECK'),
+          title: Text('DECK'),
+          bottom: TabBar(tabs: <Widget>[
+            Tab(text: 'Status',icon: Icon(Icons.schedule),),
+            Tab(text: 'Activity',icon: Icon(Icons.dehaze)),
+            Tab(text: 'Info',icon: Icon(Icons.contacts),),
+          ],),
         ),
-        body: Column(
-          children: <Widget>[
-            Expanded( 
-              child :
-              ButtonBar(
-                mainAxisSize: MainAxisSize.max,
-                children: <Widget>[
-                  RaisedButton(
-                    clipBehavior: Clip.antiAliasWithSaveLayer,
-                    elevation: 20.0,
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (BuildContext context) {
-                            return Roomstatus();
-                          },
-                        ),
-                      );
-                    },
-                    child: Text(
-                      'Room Status',
-                      style: TextStyle(
-                        fontSize: 10.2,
-                        fontFamily: 'Imapact',
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                  RaisedButton(
-                    clipBehavior: Clip.antiAliasWithSaveLayer,
-                    elevation: 20.0,
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (BuildContext context) {
-                            return Recentactivity();
-                          },
-                        ),
-                      );
-                    },
-                    child: Text(
-                      'Recent Activity',
-                      style: TextStyle(
-                        fontSize: 10.2,
-                        fontFamily: 'Impact',
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                  RaisedButton(
-                    clipBehavior: Clip.antiAliasWithSaveLayer,
-                    elevation: 20.0,
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (BuildContext context) {
-                            return Memberinfo();
-                          },
-                        ),
-                      );
-                    },
-                    child: Text(
-                      'Member\'s info',
-                      style: TextStyle(
-                        fontSize: 10.2,
-                        fontFamily: 'Impact',
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  )
-                ],
-              ),
-            ),
-          ],
-        ));
+      body: TabBarView(children: <Widget>[
+                Roomstatus(),
+                Recentactivity(),
+                Memberinfo(),
+
+      ],),),
+      length: 3,
+    );
   }
 }
+
+
+

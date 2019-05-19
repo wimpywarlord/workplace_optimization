@@ -4,10 +4,6 @@ class Memberinfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Memeber\'s info'),
-      ),
-    );
+    return Center(child: Text('THIS IS MEMBER\'s INFO'),);
   }
 }

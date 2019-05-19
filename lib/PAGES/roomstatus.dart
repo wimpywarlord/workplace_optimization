@@ -4,10 +4,7 @@ class Roomstatus extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Room Status'),
-      ),
-    );
+    return Center(child: Text('THIS IS ROOM STATUS'),);
+
   }
 }

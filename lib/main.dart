@@ -66,7 +66,7 @@ class Button extends StatelessWidget
     return RaisedButton(
               elevation: 20.0,
               onPressed: () {
-                Navigator.push(context,
+                Navigator.pushReplacement(context,
                     MaterialPageRoute(builder: (BuildContext context) {
                   return Deck();
                 }));

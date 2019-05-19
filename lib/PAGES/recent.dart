@@ -4,10 +4,6 @@ class Recentactivity extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Recent activity'),
-      ),
-    );
+    return Center(child: Text('THIS IS RECENT ACTIVITY'),);
   }
 }
