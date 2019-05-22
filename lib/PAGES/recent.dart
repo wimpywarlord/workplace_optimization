@@ -4,6 +4,16 @@ class Recentactivity extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Center(child: Text('THIS IS RECENT ACTIVITY'),);
+    return Column(
+      children: <Widget>[
+        SizedBox(height: 30.0),
+        RaisedButton(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(100.0),
+          ),
+          onPressed: () {},
+        )
+      ],
+    );
   }
 }
