@@ -11,46 +11,58 @@ class Page2 extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return MaterialApp(
-      home: Scaffold(
-        body: Stack(
-          children: <Widget>[
-            Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage('images/page2.jpg'), fit: BoxFit.cover),
-              ),
+      home: GestureDetector(
+        onTap: () {
+          return Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (BuildContext context) {
+                return Page3();
+              },
             ),
-            Container(
-              color: Color.fromRGBO(255, 255, 255, 0.19),
-            ),
-            Container(
-              alignment: Alignment.center,
-              child: Center(
-                child: Text(
-                  'TRACK YOUR PROGRESS',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      fontSize: 50.0,
-                      fontFamily: 'Billy',
-                      fontWeight: FontWeight.bold,
-                      color: Color.fromRGBO(0, 0, 0, 1)),
+          );
+        },
+        child: Scaffold(
+          body: Stack(
+            children: <Widget>[
+              Container(
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage('images/page2.jpg'), fit: BoxFit.cover),
                 ),
               ),
-            ),
-            Container(
-              margin: EdgeInsets.only(bottom: 10.0),
-              alignment: Alignment.bottomCenter,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Page1call(),
-                  Page2call(),
-                  Page3call(),
-                  Page4call(),
-                ],
+              Container(
+                color: Color.fromRGBO(255, 255, 255, 0.19),
               ),
-            )
-          ],
+              Container(
+                alignment: Alignment.center,
+                child: Center(
+                  child: Text(
+                    'TRACK YOUR PROGRESS',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontSize: 50.0,
+                        fontFamily: 'billy',
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromRGBO(0, 0, 0, 1)),
+                  ),
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(bottom: 10.0),
+                alignment: Alignment.bottomCenter,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Page1call(),
+                    Page2call(),
+                    Page3call(),
+                    Page4call(),
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
@@ -62,9 +74,7 @@ class Page2call extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return RawMaterialButton(
-      onPressed: () {
-        
-      },
+      onPressed: () {},
       constraints: BoxConstraints.tightFor(height: 10.0, width: 10.0),
       shape: CircleBorder(),
       fillColor: Colors.white,
@@ -115,7 +125,6 @@ class Page3call extends StatelessWidget {
     );
   }
 }
-
 
 class Page4call extends StatelessWidget {
   @override

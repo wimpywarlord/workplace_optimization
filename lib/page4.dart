@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:init_app/auth.dart';
 import 'package:init_app/main.dart';
 
 import './main.dart';
@@ -10,14 +11,22 @@ class Page4 extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return MaterialApp(
-      home: Scaffold(
+      home: GestureDetector(onTap: ( ) {
+        return Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (BuildContext context) {
+              return AuthPage();
+            },
+          ),
+        );
+      },child : Scaffold(
         body: Stack(
           children: <Widget>[
             Container(
               decoration: BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage('images/page4.jpg'),
-                    fit: BoxFit.cover),
+                    image: AssetImage('images/page4.jpg'), fit: BoxFit.cover),
               ),
             ),
             Container(
@@ -33,7 +42,7 @@ class Page4 extends StatelessWidget {
                       fontSize: 50.0,
                       fontFamily: 'Billy',
                       fontWeight: FontWeight.bold,
-                      color: Color.fromRGBO(0,0,0, 1)),
+                      color: Color.fromRGBO(0, 0, 0, 1)),
                 ),
               ),
             ),
@@ -52,10 +61,11 @@ class Page4 extends StatelessWidget {
             )
           ],
         ),
-      ),
+      ),), 
     );
   }
 }
+
 class Page2call extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -77,6 +87,7 @@ class Page2call extends StatelessWidget {
     );
   }
 }
+
 class Page1call extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -121,19 +132,15 @@ class Page3call extends StatelessWidget {
   }
 }
 
-
 class Page4call extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return RawMaterialButton(
-      onPressed: () {
-        
-      },
+      onPressed: () {},
       constraints: BoxConstraints.tightFor(height: 10.0, width: 10.0),
       shape: CircleBorder(),
       fillColor: Colors.white,
     );
   }
 }
-

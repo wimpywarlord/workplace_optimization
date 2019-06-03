@@ -46,6 +46,8 @@ flutter:
      - images/page2.jpg
      - images/page3.jpg
      - images/page4.jpg
+     - images/auth.jpg
+     - images/boom.jpg
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -63,6 +65,15 @@ flutter:
   - family: Billy
     fonts:
       - asset: images/Billy.ttf
+  - family: cap
+    fonts:
+      - asset: images/cap.ttf
+  - family: bold
+    fonts:
+      - asset: images/bold.ttf
+  - family: mini
+    fonts:
+      - asset: images/mini.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
