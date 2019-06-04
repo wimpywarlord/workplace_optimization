@@ -17,8 +17,42 @@ class AuthPage extends StatelessWidget {
               ),
             ),
             Container(
-                color: Color.fromRGBO(255, 255, 255, 0.39),
-              ),
+              color: Color.fromRGBO(255, 255, 255, 0.39),
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Container(
+                  margin: EdgeInsets.symmetric(horizontal: 30.0),
+                  width: 350.0,
+                  child: Form(
+                    child: Column(
+                      children: <Widget>[
+                        Container(
+                            padding: EdgeInsets.all(10.0),
+                            child: TextFormField(
+                              keyboardType: TextInputType.text,
+                              decoration: InputDecoration(
+                                fillColor: Colors.white,
+                                filled: true,
+                                labelText: 'Username',
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(
+                                      20.0,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              maxLength: 20,
+                            )),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),
