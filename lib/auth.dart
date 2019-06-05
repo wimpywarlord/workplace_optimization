@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
+import 'package:init_app/apppage.dart';
+
 class AuthPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -117,8 +119,17 @@ class _AuthPageState extends State<AuthPage> {
                             };
                             print(userdata);
                             http.post(
-                                'https://workplaceop-82e5b.firebaseio.com/userdata.json',
-                                body: json.encode(userdata));
+                              'https://workplace-e3f7b.firebaseio.com/userdata.json',
+                              body: json.encode(userdata),
+                            );
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (BuildContext context) {
+                                  return AppStartPage();
+                                },
+                              ),
+                            );
                             print(userdata);
                           },
                           color: Colors.white,
