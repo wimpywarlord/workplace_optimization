@@ -117,7 +117,7 @@ class _AuthPageState extends State<AuthPage> {
                             };
                             print(userdata);
                             http.post(
-                                'https://init-4ad8b.firebaseio.com/userdata.json',
+                                'https://workplaceop-82e5b.firebaseio.com/userdata.json',
                                 body: json.encode(userdata));
                             print(userdata);
                           },
@@ -127,7 +127,7 @@ class _AuthPageState extends State<AuthPage> {
                             borderRadius: BorderRadius.circular(10.0),
                           ),
                           child: Text('LOG IN'),
-                        )
+                        ),
                       ],
                     ),
                   ),

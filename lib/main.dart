@@ -16,67 +16,69 @@ class Start extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return MaterialApp(
-      home: GestureDetector(
-        onTap: () {
-          return Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (BuildContext context) {
-                return Page2();
-              },
-            ),
-          );
-        },
-        child: Scaffold(
-          body: Stack(
-            children: <Widget>[
-              Container(
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage('images/page1.jpg'),
-                      fit: BoxFit.fitHeight),
-                ),
+      home: Builder(builder: (context) {
+        return GestureDetector(
+          onTap: () {
+            return Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (BuildContext context) {
+                  return Page2();
+                },
               ),
-              Container(
-                color: Color.fromRGBO(255, 255, 255, 0.19),
-              ),
-              Container(
-                alignment: Alignment.center,
-                child: Center(
-                  child: Text(
-                    'LETS BE PRODUCTIVE TODAY',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontSize: 50.0,
-                        fontFamily: 'bold',
-                        fontWeight: FontWeight.bold,
-                        color: Color.fromRGBO(255, 255, 255, 1)),
+            );
+          },
+          child: Scaffold(
+            body: Stack(
+              children: <Widget>[
+                Container(
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage('images/page1.jpg'),
+                        fit: BoxFit.fitHeight),
                   ),
                 ),
-              ),
-              Container(
-                margin: EdgeInsets.only(bottom: 10.0),
-                alignment: Alignment.bottomCenter,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    RawMaterialButton(
-                      onPressed: () {},
-                      constraints:
-                          BoxConstraints.tightFor(height: 10.0, width: 10.0),
-                      shape: CircleBorder(),
-                      fillColor: Colors.white,
-                    ),
-                    Page2call(),
-                    Page3call(),
-                    Page4call(),
-                  ],
+                Container(
+                  color: Color.fromRGBO(255, 255, 255, 0.19),
                 ),
-              )
-            ],
+                Container(
+                  alignment: Alignment.center,
+                  child: Center(
+                    child: Text(
+                      'LETS BE PRODUCTIVE TODAY',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontSize: 50.0,
+                          fontFamily: 'bold',
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromRGBO(255, 255, 255, 1)),
+                    ),
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(bottom: 10.0),
+                  alignment: Alignment.bottomCenter,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      RawMaterialButton(
+                        onPressed: () {},
+                        constraints:
+                            BoxConstraints.tightFor(height: 10.0, width: 10.0),
+                        shape: CircleBorder(),
+                        fillColor: Colors.white,
+                      ),
+                      Page2call(),
+                      Page3call(),
+                      Page4call(),
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
-        ),
-      ),
+        );
+      }),
     );
   }
 }
