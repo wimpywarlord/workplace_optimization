@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 import 'package:init_app/apppage.dart';
+import 'package:init_app/signup.dart';
 
 class AuthPage extends StatefulWidget {
   @override
@@ -13,8 +15,6 @@ class AuthPage extends StatefulWidget {
 }
 
 class _AuthPageState extends State<AuthPage> {
-  String username = '';
-  String password = '';
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -62,8 +62,6 @@ class _AuthPageState extends State<AuthPage> {
                             onSaved: (String value) {
                               setState(
                                 () {
-                                  username = value;
-                                  print(username);
                                 },
                               );
                             },
@@ -84,13 +82,12 @@ class _AuthPageState extends State<AuthPage> {
                           ),
                         ),
                         Container(
-                          padding: EdgeInsets.all(10.0),
+                          padding: EdgeInsets.all(5.0),
                           child: TextFormField(
+                            obscureText: true,
                             onSaved: (String value) {
                               setState(
                                 () {
-                                  password = value;
-                                  print(password);
                                 },
                               );
                             },
@@ -110,18 +107,35 @@ class _AuthPageState extends State<AuthPage> {
                             maxLength: 20,
                           ),
                         ),
+                        Container(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              GestureDetector(
+                                onTap: () {
+                                  return Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (BuildContext context) {
+                                        return SignUpPage();
+                                      },
+                                    ),
+                                  );
+                                },
+                                child: Text(
+                                  'Sign Up |',
+                                  style: TextStyle(fontWeight: FontWeight.w900),
+                                ),
+                              ),
+                              Text(
+                                'Terms and Conditions.',
+                                style: TextStyle(fontWeight: FontWeight.w900),
+                              )
+                            ],
+                          ),
+                        ),
                         RaisedButton(
                           onPressed: () {
-                            _formkey.currentState.save();
-                            final Map<String, String> userdata = {
-                              'username': username,
-                              'password': password,
-                            };
-                            print(userdata);
-                            http.post(
-                              'https://workplace-e3f7b.firebaseio.com/userdata.json',
-                              body: json.encode(userdata),
-                            );
                             Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -130,7 +144,6 @@ class _AuthPageState extends State<AuthPage> {
                                 },
                               ),
                             );
-                            print(userdata);
                           },
                           color: Colors.white,
                           elevation: 10.0,

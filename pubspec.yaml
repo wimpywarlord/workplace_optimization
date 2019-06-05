@@ -49,6 +49,10 @@ flutter:
      - images/page4.jpg
      - images/auth.jpg
      - images/boom.jpg
+     - images/sign1.jpg
+     - images/sign2.jpg
+     - images/sign3.jpg
+     - images/sign4.jpg
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
