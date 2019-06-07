@@ -140,7 +140,7 @@ class SignUpPageState extends State<SignUpPage> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10.0),
                 ),
-                child: Text('LOG IN'),
+                child: Text('SIGN IN'),
               ),
             ],
           )
