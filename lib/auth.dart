@@ -5,6 +5,7 @@ import 'dart:convert';
 
 import 'package:init_app/apppage.dart';
 import 'package:init_app/signup.dart';
+import './page2.dart';
 
 class AuthPage extends StatefulWidget {
   @override
@@ -17,6 +18,7 @@ class AuthPage extends StatefulWidget {
 class _AuthPageState extends State<AuthPage> {
   String checkusername = '';
   String checkpassword;
+  bool check;
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -155,19 +157,38 @@ class _AuthPageState extends State<AuthPage> {
 
                                 if (userlist[id]['username'] == checkusername &&
                                     userlist[id]['password'] == checkpassword) {
+                                  check = true;
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
                                       builder: (BuildContext context) {
-                                        return AppStartPage();
+                                        return AppStartPage(
+                                            userlist[id]['username'],
+                                            userlist[id]['skill'],
+                                            userlist[id]['mobileno']);
                                       },
                                     ),
                                   );
                                 } else {
-                                  print('fail');
+                                  check = false;
+                                  print(check);
                                 }
                               });
                             });
+                            if (check == false) {
+                              return showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return AlertDialog(
+                                      title: Icon(
+                                        Icons.error,
+                                        size: 40.0,
+                                      ),
+                                      content: Text(
+                                          'Either you are not a registered user or you have entered a wrong combination of username and password.'),
+                                    );
+                                  });
+                            }
                           },
                           color: Colors.white,
                           elevation: 10.0,
