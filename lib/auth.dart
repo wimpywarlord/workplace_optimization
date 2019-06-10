@@ -15,9 +15,8 @@ class AuthPage extends StatefulWidget {
 }
 
 class _AuthPageState extends State<AuthPage> {
-
-  String checkusername ='';
-  String checkpassword; 
+  String checkusername = '';
+  String checkpassword;
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -65,7 +64,7 @@ class _AuthPageState extends State<AuthPage> {
                             onSaved: (String value) {
                               setState(
                                 () {
-                                  checkusername=value;
+                                  checkusername = value;
                                 },
                               );
                             },
@@ -92,7 +91,7 @@ class _AuthPageState extends State<AuthPage> {
                             onSaved: (String value) {
                               setState(
                                 () {
-                                  checkpassword=value;
+                                  checkpassword = value;
                                 },
                               );
                             },
@@ -141,20 +140,34 @@ class _AuthPageState extends State<AuthPage> {
                         ),
                         RaisedButton(
                           onPressed: () {
+                            _formkey.currentState.save();
+                            http
+                                .get(
+                                    'https://work-fb68d.firebaseio.com/userdata.json')
+                                .then((http.Response response) {
+                              Map<String, dynamic> userlist =
+                                  json.decode(response.body);
+                              userlist.forEach((String id, dynamic userdata) {
+                                print(userlist[id]['username']);
+                                print(checkusername);
+                                print(userlist[id]['password']);
+                                print(checkpassword);
 
-                            http.get('https://work-fb68d.firebaseio.com/userdata.json').then((http.Response response) 
-                            {
-                             print(json.decode(response.body)); 
+                                if (userlist[id]['username'] == checkusername &&
+                                    userlist[id]['password'] == checkpassword) {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (BuildContext context) {
+                                        return AppStartPage();
+                                      },
+                                    ),
+                                  );
+                                } else {
+                                  print('fail');
+                                }
+                              });
                             });
-
-                            /*Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (BuildContext context) {
-                                  return AppStartPage();
-                                },
-                              ),
-                            );*/
                           },
                           color: Colors.white,
                           elevation: 10.0,
