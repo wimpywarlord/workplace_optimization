@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
+import 'package:init_app/auth.dart';
+
 class SignUpPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -141,10 +143,18 @@ class SignUpPageState extends State<SignUpPage> {
                       'mobileno': mobileno
                     };
                     http.post(
-                      'https://workplace-e3f7b.firebaseio.com/userdata.json',
+                      'https://work-fb68d.firebaseio.com/userdata.json',
                       body: json.encode(userdata),
                     );
                     print(userdata);
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (BuildContext context) {
+                            return AuthPage();
+                          },
+                        ),
+                      );
                   },
                   color: Colors.white,
                   elevation: 10.0,

@@ -15,6 +15,9 @@ class AuthPage extends StatefulWidget {
 }
 
 class _AuthPageState extends State<AuthPage> {
+
+  String checkusername ='';
+  String checkpassword; 
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -62,6 +65,7 @@ class _AuthPageState extends State<AuthPage> {
                             onSaved: (String value) {
                               setState(
                                 () {
+                                  checkusername=value;
                                 },
                               );
                             },
@@ -88,6 +92,7 @@ class _AuthPageState extends State<AuthPage> {
                             onSaved: (String value) {
                               setState(
                                 () {
+                                  checkpassword=value;
                                 },
                               );
                             },
@@ -136,14 +141,20 @@ class _AuthPageState extends State<AuthPage> {
                         ),
                         RaisedButton(
                           onPressed: () {
-                            Navigator.push(
+
+                            http.get('https://work-fb68d.firebaseio.com/userdata.json').then((http.Response response) 
+                            {
+                             print(json.decode(response.body)); 
+                            });
+
+                            /*Navigator.push(
                               context,
                               MaterialPageRoute(
                                 builder: (BuildContext context) {
                                   return AppStartPage();
                                 },
                               ),
-                            );
+                            );*/
                           },
                           color: Colors.white,
                           elevation: 10.0,

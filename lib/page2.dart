@@ -42,7 +42,7 @@ class Page2 extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         fontSize: 50.0,
-                        fontFamily: 'billy',
+                        fontFamily: 'bold',
                         fontWeight: FontWeight.bold,
                         color: Color.fromRGBO(0, 0, 0, 1)),
                   ),
