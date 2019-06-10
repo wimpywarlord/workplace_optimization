@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:init_app/roomstatus.dart';
+
+
+import './members.dart';
+import './activity.dart';
 
 class AppStartPage extends StatefulWidget {
   @override
@@ -17,13 +22,31 @@ class AppStartPageState extends State<AppStartPage> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return MaterialApp(
-      home: Scaffold(
-        body: Column(
+    return DefaultTabController(
+      length: 3,
+      child: Scaffold(
+        appBar: AppBar(
+          bottom: TabBar(
+            tabs: <Widget>[
+              Tab(
+                text: 'Room Status',
+              ),
+              Tab(
+                text: 'Activity',
+              ),
+              Tab(
+                text: 'Members',
+              ),
+            ],
+          ),
+          automaticallyImplyLeading: false,
+          title: Text('INIT'),
+        ),
+        body: TabBarView(
           children: <Widget>[
-            Text(widget.currentusername),
-            Text(widget.currentskill),
-            Text(widget.currentmobileno),
+            RoomStatus(),
+            Activity(),
+            Members(),
           ],
         ),
       ),

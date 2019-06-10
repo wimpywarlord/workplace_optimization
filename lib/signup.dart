@@ -107,7 +107,7 @@ class SignUpPageState extends State<SignUpPage> {
                         ),
                       ),
                     ),
-                    maxLength: 20,
+                    maxLength: 40,
                   ),
                 ),
                 Container(

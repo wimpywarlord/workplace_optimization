@@ -158,7 +158,7 @@ class _AuthPageState extends State<AuthPage> {
                                 if (userlist[id]['username'] == checkusername &&
                                     userlist[id]['password'] == checkpassword) {
                                   check = true;
-                                  Navigator.push(
+                                  Navigator.pushReplacement(
                                     context,
                                     MaterialPageRoute(
                                       builder: (BuildContext context) {
