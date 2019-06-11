@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:init_app/roomstatus.dart';
 
-
 import './members.dart';
 import './activity.dart';
 
 class AppStartPage extends StatefulWidget {
- 
   final String currentusername;
   final String currentskill;
   final String currentmobileno;
-  final Map<String,dynamic> userlist;
- @override
-  AppStartPage(this.userlist,this.currentusername, this.currentskill, this.currentmobileno);
+  final Map<String, dynamic> userlist;
+  @override
+  AppStartPage(this.userlist, this.currentusername, this.currentskill,
+      this.currentmobileno);
 
   State createState() {
     return AppStartPageState();
@@ -30,10 +29,10 @@ class AppStartPageState extends State<AppStartPage> {
           bottom: TabBar(
             tabs: <Widget>[
               Tab(
-                text: 'Room Status',
+                text: 'Activity',
               ),
               Tab(
-                text: 'Activity',
+                text: 'Room Status',
               ),
               Tab(
                 text: 'Members',
@@ -45,8 +44,9 @@ class AppStartPageState extends State<AppStartPage> {
         ),
         body: TabBarView(
           children: <Widget>[
+            Activity(widget.currentusername, widget.currentskill,
+                widget.currentmobileno),
             RoomStatus(),
-            Activity(),
             Members(widget.userlist),
           ],
         ),
