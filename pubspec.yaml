@@ -54,6 +54,7 @@ flutter:
      - images/sign2.jpg
      - images/sign3.jpg
      - images/sign4.jpg
+     - images/man.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -163,9 +163,11 @@ class _AuthPageState extends State<AuthPage> {
                                     MaterialPageRoute(
                                       builder: (BuildContext context) {
                                         return AppStartPage(
+                                            userlist,
                                             userlist[id]['username'],
                                             userlist[id]['skill'],
                                             userlist[id]['mobileno']);
+                                            
                                       },
                                     ),
                                   );

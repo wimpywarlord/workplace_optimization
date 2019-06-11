@@ -6,12 +6,13 @@ import './members.dart';
 import './activity.dart';
 
 class AppStartPage extends StatefulWidget {
-  @override
+ 
   final String currentusername;
   final String currentskill;
   final String currentmobileno;
-
-  AppStartPage(this.currentusername, this.currentskill, this.currentmobileno);
+  final Map<String,dynamic> userlist;
+ @override
+  AppStartPage(this.userlist,this.currentusername, this.currentskill, this.currentmobileno);
 
   State createState() {
     return AppStartPageState();
@@ -46,7 +47,7 @@ class AppStartPageState extends State<AppStartPage> {
           children: <Widget>[
             RoomStatus(),
             Activity(),
-            Members(),
+            Members(widget.userlist),
           ],
         ),
       ),
