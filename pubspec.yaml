@@ -55,7 +55,12 @@ flutter:
      - images/sign3.jpg
      - images/sign4.jpg
      - images/man.png
-
+     - images/dadandbaby.jpg
+     - images/penandpaper.jpg
+     - images/boat.jpg
+     - images/sketch.jpg
+     - images/pencil.jpg
+     
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

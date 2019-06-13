@@ -44,8 +44,7 @@ class AppStartPageState extends State<AppStartPage> {
         ),
         body: TabBarView(
           children: <Widget>[
-            Activity(widget.currentusername, widget.currentskill,
-                widget.currentmobileno),
+            Activity(),
             RoomStatus(),
             Members(widget.userlist),
           ],

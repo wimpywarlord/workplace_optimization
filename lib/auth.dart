@@ -18,6 +18,7 @@ class AuthPage extends StatefulWidget {
 class _AuthPageState extends State<AuthPage> {
   String checkusername = '';
   String checkpassword;
+  bool postentry=true;
   bool check;
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
   @override
@@ -157,6 +158,21 @@ class _AuthPageState extends State<AuthPage> {
 
                                 if (userlist[id]['username'] == checkusername &&
                                     userlist[id]['password'] == checkpassword) {
+                                    
+
+                                  Map<String, dynamic> feedentry = {
+                                    'username': userlist[id]['username'],
+                                    'skill': userlist[id]['skill'],
+                                    'target': 'Just Entered The Lab.'
+                                  };
+                                  http.post(
+                                    'https://workfeed-715b8.firebaseio.com/feed.json',
+                                    body: json.encode(feedentry),
+                                  );
+                                
+                                    
+                                    
+
                                   check = true;
                                   Navigator.pushReplacement(
                                     context,
