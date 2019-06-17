@@ -24,6 +24,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
   http: ^0.12.0+2
+  intl: ^0.15.8
   
 
 dev_dependencies:
@@ -52,7 +53,6 @@ flutter:
      - images/boom.jpg
      - images/sign1.jpg
      - images/sign2.jpg
-     - images/sign3.jpg
      - images/sign4.jpg
      - images/man.png
      - images/dadandbaby.jpg
@@ -60,6 +60,9 @@ flutter:
      - images/boat.jpg
      - images/sketch.jpg
      - images/pencil.jpg
+     - images/redhouse.jpg
+     - images/door.jpg
+     - images/bbb.jpg
      
 
   # An image asset can refer to one or more resolution-specific "variants", see

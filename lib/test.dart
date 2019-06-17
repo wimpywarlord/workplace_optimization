@@ -1,40 +1,71 @@
-import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
+// import 'package:flutter/material.dart';
+// import 'package:http/http.dart' as http;
+// import 'dart:convert';
+// import 'package:intl/intl.dart';
 
-class Test extends StatefulWidget {
-  @override
-  Map<String, dynamic> livefeed;
+// class RoomStatus extends StatefulWidget {
+//   @override
+//   _RoomStatusState createState() => _RoomStatusState();
+// }
 
-  State<StatefulWidget> createState() {
-    // TODO: implement createState
-    return TestState();
-  }
-}
+// class _RoomStatusState extends State<RoomStatus> {
+//   Map<String, dynamic> timelist;
+//   @override
+//   void initState() {
+//     // TODO: implement initState
 
-class TestState extends State<Test> {
-  @override
-  void initState() {
-    setState(() {
-      http
-          .get('https://workfeed-715b8.firebaseio.com/feed.json')
-          .then((http.Response response) {
-        widget.livefeed = json.decode(response.body);
-        print(widget.livefeed);
-        print(widget.livefeed.length);
-      });
-    });
+//     http
+//         .get('https://workfeed-715b8.firebaseio.com/time.json')
+//         .then((http.Response response) {
+//       if (mounted) {
+//         setState(() {
+//           timelist = json.decode(response.body);
+//           //print(timelist);
+//         });
+//       }
+//     });
+//     super.initState();
+//   }
 
-    // TODO: implement initState
-    super.initState();
-  }
+//   @override
+//   Widget build(BuildContext context) {
+//     return timelist != null ? room_stat(timelist) : Text('LOADING');
+//   }
+// }
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Text(widget.livefeed != null
-          ? widget.livefeed.toString()
-          : 'some default text like loading...'),
-    );
-  }
-}
+// Widget room_stat(Map<String, dynamic> timelist) {
+//   return Column(
+//     children: <Widget>[
+//       Expanded(
+//         child: ListView.builder(
+//             itemCount: timelist.length,
+//             itemBuilder: (BuildContext context, int index) {
+//               print('hello');
+//               List<String> keys = timelist.keys.toList();
+//               DateTime now = DateTime.now();
+//               DateTime logintime =
+//                   DateTime.parse(timelist[keys[index]]['time']);
+//               Duration diff = now.difference(logintime);
+//               Duration check = new Duration(hours: 1, minutes: 0, seconds: 0);
+//               print(diff);
+//               print(timelist.length);
+//               print(check);
+//               if (diff < check) {
+//                 return ListTile(
+//                   title: Text(
+//                     timelist[keys[index]]['username'],
+//                     style: TextStyle(fontSize: 20.0, fontFamily: 'bold'),
+//                   ),
+//                   leading: RawMaterialButton(
+//                     constraints:
+//                         BoxConstraints.tightFor(height: 10.0, width: 10.0),
+//                     shape: CircleBorder(),
+//                     fillColor: Colors.lightGreen,
+//                   ),
+//                 );
+//               }
+//             }),
+//       )
+//     ],
+//   );
+// }

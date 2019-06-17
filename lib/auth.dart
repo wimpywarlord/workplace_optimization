@@ -18,7 +18,7 @@ class AuthPage extends StatefulWidget {
 class _AuthPageState extends State<AuthPage> {
   String checkusername = '';
   String checkpassword;
-  bool postentry=true;
+  bool postentry = true;
   bool check;
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
   @override
@@ -158,8 +158,6 @@ class _AuthPageState extends State<AuthPage> {
 
                                 if (userlist[id]['username'] == checkusername &&
                                     userlist[id]['password'] == checkpassword) {
-                                    
-
                                   Map<String, dynamic> feedentry = {
                                     'username': userlist[id]['username'],
                                     'skill': userlist[id]['skill'],
@@ -169,9 +167,16 @@ class _AuthPageState extends State<AuthPage> {
                                     'https://workfeed-715b8.firebaseio.com/feed.json',
                                     body: json.encode(feedentry),
                                   );
-                                
-                                    
-                                    
+
+                                  String now = DateTime.now().toString();
+                                  Map<String, dynamic> time = {
+                                    'time': now,
+                                    'username': userlist[id]['username'],
+                                    'skill': userlist[id]['skill'],
+                                  };
+                                  http.post(
+                                      'https://workfeed-715b8.firebaseio.com/time.json',
+                                      body: json.encode(time));
 
                                   check = true;
                                   Navigator.pushReplacement(
@@ -183,7 +188,6 @@ class _AuthPageState extends State<AuthPage> {
                                             userlist[id]['username'],
                                             userlist[id]['skill'],
                                             userlist[id]['mobileno']);
-                                            
                                       },
                                     ),
                                   );

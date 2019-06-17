@@ -29,7 +29,7 @@ class SignUpPageState extends State<SignUpPage> {
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('images/sign1.jpg'),
+                image: AssetImage('images/bbb.jpg'),
                 fit: BoxFit.cover,
               ),
             ),

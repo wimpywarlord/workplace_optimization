@@ -26,7 +26,7 @@ class Page4 extends StatelessWidget {
             Container(
               decoration: BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage('images/page4.jpg'), fit: BoxFit.cover),
+                    image: AssetImage('images/redhouse.jpg'), fit: BoxFit.cover),
               ),
             ),
             Container(

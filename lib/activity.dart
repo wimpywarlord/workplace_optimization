@@ -4,8 +4,17 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
+import 'package:init_app/feedentry.dart';
+
 class Activity extends StatefulWidget {
   Map<String, dynamic> livefeed;
+  String currentusername;
+  String currentskill;
+  final String currentmobileno;
+  final Map<String, dynamic> userlist;
+
+  Activity(this.currentusername, this.currentskill, this.currentmobileno,
+      this.userlist);
 
   @override
   State<StatefulWidget> createState() {
@@ -55,7 +64,20 @@ class ActivityState extends State<Activity> {
                 child: FloatingActionButton(
                   child: Icon(Icons.edit),
                   elevation: 20.0,
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (BuildContext context) {
+                          return FeedEntry(
+                              widget.currentusername,
+                              widget.currentskill,
+                              widget.currentmobileno,
+                              widget.userlist);
+                        },
+                      ),
+                    );
+                  },
                   backgroundColor: Color.fromRGBO(81, 175, 255, 1),
                 ),
               ),
@@ -91,55 +113,55 @@ Widget activity_feed(Map<String, dynamic> livefeed) {
                     ),
                   ),
                   Expanded(
-                    flex: 10,
+                      flex: 10,
                       child: Column(
-                    children: <Widget>[
-                      ListTile(
-                        title: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text(
-                              livefeed[keys[livefeed.length - index - 1]]
-                                      ['username']
-                                  .toString()
-                                  .toUpperCase(),
-                              style: TextStyle(
-                                  fontFamily: 'Impact',
-                                  fontWeight: FontWeight.w900),
+                        children: <Widget>[
+                          ListTile(
+                            title: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  livefeed[keys[livefeed.length - index - 1]]
+                                          ['username']
+                                      .toString()
+                                      .toUpperCase(),
+                                  style: TextStyle(
+                                      fontFamily: 'Impact',
+                                      fontWeight: FontWeight.w900),
+                                ),
+                                Text(
+                                  livefeed[keys[livefeed.length - index - 1]]
+                                          ['skill']
+                                      .toString(),
+                                ),
+                                SizedBox(
+                                  height: 20.0,
+                                ),
+                                Text(
+                                  'TARGET',
+                                  style: TextStyle(
+                                      fontFamily: 'Impact',
+                                      fontWeight: FontWeight.w900),
+                                ),
+                              ],
                             ),
-                            Text(
-                              livefeed[keys[livefeed.length - index - 1]]
-                                      ['skill']
-                                  .toString(),
+                            isThreeLine: true,
+                            subtitle: Row(
+                              children: <Widget>[
+                                Icon(Icons.exit_to_app),
+                                Text('  ' +
+                                    livefeed[keys[livefeed.length - index - 1]]
+                                            ['target']
+                                        .toString()),
+                              ],
                             ),
-                            SizedBox(
-                              height: 20.0,
+                            contentPadding: EdgeInsets.all(20.0),
+                            leading: Icon(
+                              Icons.access_time,
                             ),
-                            Text(
-                              'TARGET',
-                              style: TextStyle(
-                                  fontFamily: 'Impact',
-                                  fontWeight: FontWeight.w900),
-                            ),
-                          ],
-                        ),
-                        isThreeLine: true,
-                        subtitle: Row(
-                          children: <Widget>[
-                            Icon(Icons.exit_to_app),
-                            Text('  ' +
-                                livefeed[keys[livefeed.length - index - 1]]
-                                        ['target']
-                                    .toString()),
-                          ],
-                        ),
-                        contentPadding: EdgeInsets.all(20.0),
-                        leading: Icon(
-                          Icons.access_time,
-                        ),
-                      ),
-                    ],
-                  )),
+                          ),
+                        ],
+                      )),
                 ],
               ));
         }),
