@@ -16,6 +16,7 @@ class Start extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return MaterialApp(
+      title: 'InIt',
       home: Builder(builder: (context) {
         return GestureDetector(
           onTap: () {

@@ -64,6 +64,7 @@ class FeedEntryState extends State<FeedEntry> {
                         Container(
                           width: 400.0,
                           child: TextFormField(
+                            maxLength: 20,
                             onSaved: (String value) {
                               widget.localtarget = value;
                             },
@@ -78,8 +79,7 @@ class FeedEntryState extends State<FeedEntry> {
                                   ),
                                 ),
                               ),
-                            ),
-                            maxLength: 45,
+                            ),         
                           ),
                         )
                       ],

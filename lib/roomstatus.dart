@@ -29,29 +29,32 @@ class _RoomStatusState extends State<RoomStatus> {
 
   @override
   Widget build(BuildContext context) {
-    return timelist != null ? room_stat(timelist) : Text('LOADING');
+    return timelist != null
+        ? Room_stat(timelist)
+        : Center(child: Container(height: 30.0,width: 30.0,child: CircularProgressIndicator()));
   }
 }
 
-Widget room_stat(Map<String, dynamic> timelist) {
+Widget Room_stat(Map<String, dynamic> timelist) {
   return Column(
     children: <Widget>[
       Expanded(
         child: ListView.builder(
             itemCount: timelist.length,
             itemBuilder: (BuildContext context, int index) {
-              print('hello');
               List<String> keys = timelist.keys.toList();
               DateTime now = DateTime.now();
-              DateTime logintime =
-                  DateTime.parse(timelist[keys[index]]['time']);
-              print(now);
-              print(logintime);
+              DateTime logintime = DateTime.parse(
+                  timelist[keys[timelist.length - index - 1]]['time']);
+
               Duration diff = now.difference(logintime);
               Duration check = new Duration(hours: 1, minutes: 0, seconds: 0);
+              print('*******');
+              print(now);
+              print(logintime);
               print(diff);
-              print(timelist.length);
               print(check);
+              print(timelist[keys[timelist.length - index - 1]]['username']);
               if (diff < check) {
                 print('lol');
                 return ListTile(

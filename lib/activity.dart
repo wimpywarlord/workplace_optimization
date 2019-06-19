@@ -42,11 +42,18 @@ class ActivityState extends State<Activity> {
   Widget build(BuildContext context) {
     return Stack(
       children: <Widget>[
+        SizedBox(
+          height: 40.0,
+        ),
         Column(
           children: <Widget>[
             widget.livefeed != null
                 ? activity_feed(widget.livefeed)
-                : Text('LOADING'),
+                : Center(
+                    child: Container(
+                        height: 30.0,
+                        width: 30.0,
+                        child: CircularProgressIndicator())),
           ],
         ),
         Container(

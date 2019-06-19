@@ -171,7 +171,7 @@ class _AuthPageState extends State<AuthPage> {
                                   String now = DateTime.now().toString();
                                   Map<String, dynamic> time = {
                                     'time': now,
-                                    'username': userlist[id]['username'],
+                                    'username': checkusername,
                                     'skill': userlist[id]['skill'],
                                   };
                                   http.post(
