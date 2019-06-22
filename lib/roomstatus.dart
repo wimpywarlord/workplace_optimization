@@ -31,7 +31,9 @@ class _RoomStatusState extends State<RoomStatus> {
   Widget build(BuildContext context) {
     return timelist != null
         ? Room_stat(timelist)
-        : Center(child: Container(height: 30.0,width: 30.0,child: CircularProgressIndicator()));
+        : Center(
+            child: Container(
+                height: 30.0, width: 30.0, child: CircularProgressIndicator()));
   }
 }
 

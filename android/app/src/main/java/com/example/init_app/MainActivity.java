@@ -1,4 +1,4 @@
-package com.example.init_app;
+package com.wimpywarlord.init;
 
 import android.os.Bundle;
 import io.flutter.app.FlutterActivity;
