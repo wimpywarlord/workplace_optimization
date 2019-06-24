@@ -57,42 +57,42 @@ class ActivityState extends State<Activity> {
                           child: CircularProgressIndicator()),
                     ],
                   ),
-            Container(
-              width: 400.0,
-              padding: EdgeInsets.all(30.0),
-              child: Column(
-                verticalDirection: VerticalDirection.down,
-                mainAxisSize: MainAxisSize.max,
-                crossAxisAlignment: CrossAxisAlignment.end,
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: <Widget>[
-                  Container(
-                    height: 72.0,
-                    width: 72.0,
-                    child: FloatingActionButton(
-                      child: Icon(Icons.edit),
-                      elevation: 20.0,
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (BuildContext context) {
-                              return FeedEntry(
-                                  widget.currentusername,
-                                  widget.currentskill,
-                                  widget.currentmobileno,
-                                  widget.userlist);
-                            },
-                          ),
-                        );
-                      },
-                      backgroundColor: Color.fromRGBO(81, 175, 255, 1),
-                    ),
-                  ),
-                ],
-              ),
-            ),
           ],
+        ),
+        Container(
+          width: 400.0,
+          padding: EdgeInsets.all(30.0),
+          child: Column(
+            verticalDirection: VerticalDirection.down,
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+              Container(
+                height: 72.0,
+                width: 72.0,
+                child: FloatingActionButton(
+                  child: Icon(Icons.edit),
+                  elevation: 20.0,
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (BuildContext context) {
+                          return FeedEntry(
+                              widget.currentusername,
+                              widget.currentskill,
+                              widget.currentmobileno,
+                              widget.userlist);
+                        },
+                      ),
+                    );
+                  },
+                  backgroundColor: Color.fromRGBO(81, 175, 255, 1),
+                ),
+              ),
+            ],
+          ),
         ),
       ],
     );

@@ -7,7 +7,7 @@ import './page3.dart';
 import './page4.dart';
 
 void main() {
-  //debugPaintSizeEnabled = true ;
+  debugPaintSizeEnabled = true ;
   return runApp(Start());
 }
 
@@ -32,6 +32,7 @@ class Start extends StatelessWidget {
           child: Scaffold(
             body: Stack(
               children: <Widget>[
+
                 Container(
                   decoration: BoxDecoration(
                     image: DecorationImage(
